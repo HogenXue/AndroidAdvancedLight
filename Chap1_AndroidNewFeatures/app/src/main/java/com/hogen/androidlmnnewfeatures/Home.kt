@@ -24,6 +24,6 @@ fun HomeContent(){
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp,vertical = 8.dp)
     ) {
-        Text(text = "RecylerView")
+
     }
 }
