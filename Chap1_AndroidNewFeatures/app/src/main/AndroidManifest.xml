@@ -19,9 +19,12 @@
         <activity
             android:name=".dynamicpermission.OriginalActivity"
             android:exported="true" >
+        </activity>
+        <activity android:name=".dynamicpermission.DynamicRxActivity"
+            android:exported="true"
+            android:label="Dynamicpermission">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

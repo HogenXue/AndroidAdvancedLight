@@ -2,11 +2,13 @@ package com.hogen.androidlmnnewfeatures.dynamicpermission
 
 import android.Manifest
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import com.hogen.androidlmnnewfeatures.ui.theme.AndroidLMNNewFeaturesTheme
+import com.tbruyelle.rxpermissions3.RxPermissions
 
 /**
  * @author Hogen.Xue
@@ -22,7 +24,7 @@ class DynamicRxActivity : AppCompatActivity() {
 
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    HomeScreen()
+                    HomeScreen(this)
                 }
             }
         }
@@ -30,23 +32,26 @@ class DynamicRxActivity : AppCompatActivity() {
 }
 
 
-private fun requestPermissions() {
-    var rxPermissions = RxPermissions();
+private fun requestPermissions(context:AppCompatActivity) {
+    var rxPermissions = RxPermissions(context);
     rxPermissions
         .request(Manifest.permission.CAMERA)
         .subscribe { granted ->
             if (granted) { // Always true pre-M
                 // I can control the camera now
+                Toast.makeText(context,"Ooops", Toast.LENGTH_SHORT).show()
             } else {
                 // Oups permission denied
+                Toast.makeText(context,"Denied", Toast.LENGTH_SHORT).show()
             }
         }
 }
 
 
 @Composable
-fun HomeScreen(){
-    Button(onClick = { requestPermissions() }) {
+fun HomeScreen(context:AppCompatActivity){
+    Button(onClick = { requestPermissions(context) }) {
         Text(text = "Call")
     }
+    Text(text = "JetpackCompose")
 }
