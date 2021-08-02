@@ -1,4 +1,4 @@
-package com.hogen.androidlmnnewfeatures
+package com.hogen.androidlmnnewfeatures.dynamicpermission
 
 import android.Manifest
 import android.content.Intent
@@ -10,8 +10,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
+import com.hogen.androidlmnnewfeatures.R
 
-class MainActivity2 : AppCompatActivity() {
+class OriginalActivity : AppCompatActivity() {
 
     val PERMISSION_REQUEST_PHONE = 100
 
@@ -19,6 +20,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var button: Button = findViewById(R.id.btn_request);
+
         button.setOnClickListener {
             call()
         }
